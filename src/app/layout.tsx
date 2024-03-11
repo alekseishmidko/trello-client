@@ -29,7 +29,7 @@ export default function RootLayout({
 		<html lang='en'>
 			<body className={zen.className}>
 				<Providers>
-					{children}{' '}
+					{children} 
 					<Toaster
 						theme='dark'
 						position='bottom-right'

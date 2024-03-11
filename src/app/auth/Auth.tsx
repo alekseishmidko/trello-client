@@ -6,6 +6,10 @@ import { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
+import { Heading } from '@/components/ui/Heading'
+import { Button } from '@/components/ui/buttons/Button'
+import { Field } from '@/components/ui/fields/Field'
+
 import { IAuthForm } from '@/types/auth.types'
 
 import { DASHBOARD_PAGES } from '@/config/pages-url.config'
@@ -38,7 +42,27 @@ const Auth = () => {
 				className='w-1/4 m-auto shadow bg-sidebar rounded-xl p-layout'
 				onSubmit={handleSubmit(onSubmit)}
 			>
-				<div className='flex items-center gap-5 justify-center '></div>
+				<Heading title='Auth' />
+				<Field
+					id='email'
+					label='Email'
+					placeholder='Enter your email'
+					type='email'
+					extra='mb-4'
+					{...register('email', { required: 'Email is required' })}
+				/>
+				<Field
+					id='password'
+					label='Password'
+					placeholder='Enter your password'
+					type='password'
+					extra='mb-6'
+					{...register('password', { required: 'Password is required' })}
+				/>
+				<div className='flex items-center gap-5 justify-center '>
+					<Button onClick={() => setIsLoginForm(true)}>Login</Button>
+					<Button onClick={() => setIsLoginForm(true)}>Register</Button>
+				</div>
 			</form>
 		</div>
 	)
